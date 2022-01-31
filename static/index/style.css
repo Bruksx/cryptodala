@@ -1,0 +1,1171 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.spa-1{
+   
+}
+.spa-market{
+}
+
+.sign-in-cont{
+    display: none;
+}
+.sign-up-cont{
+    display: none;
+}
+
+.carousel{
+    height: 28rem;
+    width: 100vw;
+    position: relative;
+}
+
+.carousel-item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-item.active{
+    opacity: 1;
+}
+
+.carousel-item:nth-child(1){
+   background: url('img/CryptoBlades_2\(1\).png');
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+.carousel-item:nth-child(2){
+    background: url('img/maxresdefault\(1\).jpg') no-repeat center center/cover ;
+}
+
+.carousel-item:nth-child(3){
+    background: url('img/IMG_20220129_171915_691.jpeg') no-repeat center center/cover ;
+}
+
+body{
+    font-family: sans-serif;
+    box-sizing: border-box;
+    background-color: rgb(248, 243, 243); 
+    position: relative;
+    overflow-x: hidden ;
+}
+
+.hamburger-menu{
+   margin-right: 10px;
+   cursor: pointer;
+   display: none;
+}
+
+.hamburger-menu .bar-1{
+   width: 30px;
+   height: 3px;
+   background: gold;
+   margin-bottom: 8px;
+}
+
+.hamburger-menu .bar-2{
+    width: 30px;
+    height: 3px;
+    background: gold;
+    margin-top: 8px;
+}
+
+.hamburger-menu .bar-3{
+    width: 30px;
+    height: 3px;
+    background: gold;
+    margin-top: 8px;
+}
+
+.menu-bar{
+    position: fixed;
+    top: 11%;
+    right: -100%;
+    visibility: hidden;
+    background: black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    height: 100vh;
+    padding-right: 30px;
+    transition: 0.9s all ease-in-out;
+}
+
+.menu-bar a{
+    margin-bottom: 20px;
+    font-size: 17px;
+    text-decoration: none;
+    color: gold;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.buy-modal{
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    margin: 0;
+    transform: translate(-50%,-50%);
+    min-height: 30%;
+    min-width: 25rem;
+    border-radius: 1%;
+    border: 1.5px solid black;
+    transition: all 0.7s ease-in-out;
+    z-index: 4;
+    background: #000000;
+    display: none;
+}
+
+.header-modal{
+    background-color: gold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.buy-modal .buy-sell-modal{
+    display: flex;
+}
+
+.buy-modal .buy-sell-modal p:nth-child(1){
+    padding: 4px;
+    background-color: #000000;
+    font-weight: bold;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 18px;
+    text-align: center;
+    color: gold;
+    padding-right: 10px;
+}
+
+.buy-modal .buy-sell-modal p:nth-child(2){
+    padding: 4px;
+    border-radius: 3px;
+    background-color: rgba(247, 243, 14, 0.74);
+    font-weight: bold;
+    color: rgb(247, 243, 14);
+    text-transform: uppercase;
+    font-size: 18px;
+    text-align: center;
+    padding-left: 10px;
+    color: black;
+}
+
+.buy-modal .header-modal div{
+    font-weight: bolder;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.buy-modal .header-modal div:hover{
+   color: red;
+}
+
+.modal-container{
+    margin-top: 15px;
+}
+
+.sell-modal{
+    margin: auto;
+    color: #ffffff;
+    display: grid;
+    border: 3px solid rgb(26, 24, 24);
+    background-color: rgb(26, 24, 24);
+    max-width: 300px;
+    border-radius: 8px;
+    width: 100%;
+    padding: 15px;
+}
+
+.sell-modal div p{
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.sell-modal p{
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-bottom:10px;
+}
+
+.sell-option-modal{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.sell-option-modal input{
+    border: none;
+    width: 25%;
+    background: rgb(26, 24, 24);
+    outline: none;
+    font-size: 20px;
+    color: #ffffff;
+    border-bottom: 5px dashed gold;
+}
+
+.sell-option-modal select{
+    width: 40%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 11px;
+    outline:none;
+    background: rgb(26, 24, 24);
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.select-modal{
+    max-width: 400px;
+    width: 90%;
+    margin: auto;
+    padding: 30px;
+}
+
+.select-modal select{
+    width:92%;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: rgb(26, 24, 24);
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    border-radius: 10px;
+}
+
+.buy-modal button{
+    width: 100%;
+    margin-bottom: 10px;
+    max-width: 330px;
+    cursor: pointer;
+    background: gold;
+    color: black;
+    text-transform: uppercase;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 35px;
+    padding: 10px;
+}
+
+/* sell modal */
+.selling-modal{
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    margin: 0;
+    transform: translate(-50%,-50%);
+    min-height: 30%;
+    min-width: 25rem;
+    border-radius: 1%;
+    border: 1.5px solid black;
+    transition: all 0.7s ease-in-out;
+    z-index: 4;
+    background: #000000;
+    display: none;
+}
+
+.header-modal{
+    background-color: gold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.selling-modal .buy-sell-modal{
+    display: flex;
+}
+
+.selling-modal .buy-sell-modal p:nth-child(1){
+    padding: 4px;
+    border-radius: 3px;
+    background-color: rgba(247, 243, 14, 0.74);
+    font-weight: bold;
+    color: rgb(247, 243, 14);
+    text-transform: uppercase;
+    font-size: 18px;
+    text-align: center;
+    padding-left: 10px;
+    color: black;
+
+}
+
+.selling-modal .buy-sell-modal p:nth-child(2){
+    padding: 4px;
+    background-color: #000000;
+    font-weight: bold;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 18px;
+    text-align: center;
+    color: gold;
+    padding-right: 10px;
+}
+
+.selling-modal .header-modal div{
+    font-weight: bolder;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.selling-modal .header-modal div:hover{
+   color: red;
+}
+
+.modal-container{
+    margin-top: 15px;
+}
+
+.sell-modal{
+    margin: auto;
+    color: #ffffff;
+    display: grid;
+    border: 3px solid rgb(26, 24, 24);
+    background-color: rgb(26, 24, 24);
+    max-width: 300px;
+    border-radius: 8px;
+    width: 100%;
+    padding: 15px;
+}
+
+.sell-modal div p{
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.sell-modal p{
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-bottom:10px;
+}
+
+.sell-option-modal{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.sell-option-modal input{
+    border: none;
+    width: 25%;
+    background: rgb(26, 24, 24);
+    outline: none;
+    font-size: 20px;
+    color: #ffffff;
+    border-bottom: 5px dashed gold;
+}
+
+.sell-option-modal select{
+    width: 40%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 11px;
+    outline:none;
+    background: rgb(26, 24, 24);
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.select-modal{
+    max-width: 400px;
+    width: 90%;
+    margin: auto;
+    padding: 30px;
+}
+
+.select-modal select{
+    width:92%;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: rgb(26, 24, 24);
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    border-radius: 10px;
+}
+
+.selling-modal button{
+    width: 100%;
+    margin-bottom: 10px;
+    max-width: 330px;
+    cursor: pointer;
+    background: gold;
+    color: black;
+    text-transform: uppercase;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 35px;
+    padding: 10px;
+}
+
+/*Header */
+
+header{
+    background-color: #000000;
+    color: gold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+header .header-flex{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+
+}
+
+header .header-flex h1{
+    padding-left: 10px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+header .menu-container{
+    display: flex;
+    padding-left: 60px;
+}
+
+header .menu-container a{
+    color: gold;
+    text-decoration: none;
+    padding-right: 20px;
+    font-weight: bold;
+
+}
+
+header .register a{
+    color: gold;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header .info{
+    padding-right: 10px;
+}
+
+header .info a{
+    color: gold;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.showcase{
+   
+}
+
+.showcase p{
+    font-size: 13px;
+    padding: 5px;
+}
+
+.showcase-2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.showcase-2 p:nth-child(2){
+    width: 16%;
+    font-size: 16px;
+    padding-right: 15px;
+    line-height: 1.5;
+}
+
+.showcase-2 p a{
+    text-decoration: none;
+    color: gold;
+}
+
+.buy-sell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buy-sell .buy{
+    padding-right: 5px;
+}
+
+.buy-sell .buy a button{
+    background-color: gold;
+    padding: 15px;
+    width: 100%;
+    text-decoration: none;
+    border: none;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.buy p strong{
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-right:10px ;
+}
+
+.buy div{
+    width: 100%;
+    height: 5px;
+    margin-top: 5px;
+    background-color: rgb(235, 252, 235);
+}
+
+.buy p{
+    font-size: 8px;
+}
+
+.buy-sell .sell a button{
+    background-color: gold;
+    padding: 15px;
+    width: 100%;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.sell p strong{
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 8px;
+}
+
+.sell div{
+    width: 100%;
+    height: 5px;
+    margin-top: 5px;
+    background-color: rgb(235, 252, 235);
+}
+
+.sell p{
+    font-size: 8px;
+}
+
+.third-container{
+    background-color: rgb(238, 226, 226);
+}
+
+#what-we-do{
+    height: 100vh;
+    display: grid;
+    align-content: center;
+}
+
+.what-we-do{
+    margin-top: 10px;
+    padding-left: 90px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.what-we-do img{
+    width: 400px;
+}
+
+.what-we-do .content{
+    padding-left: 100px;
+}
+
+.what-we-do .content h1{
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+.what-we-do .content ul{
+    padding-left: 20px;
+}
+
+.what-we-do .content ul li{
+    padding-bottom: 15px;
+    font-size: 26px;
+}
+
+.statistics{
+    margin-top: 30px;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.statistics p{
+    padding-right: 50px;
+}
+
+.monthly{
+    padding-left: 100px;
+    margin-top: 40px;
+}
+
+.market-container{
+    margin: auto;
+    max-width: 1000px;
+    width: 100%;
+    background: #ffffff;
+}
+
+.market{
+    margin-top: 70px;
+    background: #ffffff;
+}
+
+.market .coins{
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    padding: 8px;
+}
+
+.market .coins-name{
+    margin-right: 120px;
+}
+
+.list{
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    padding-right: 22px;
+    width: 300px;
+}
+
+ .circle{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 10px;
+    background-color: gray;
+}
+
+.market-list .list .price{
+    margin-top: 15px;
+    margin-left: 0px;
+}
+
+.market-list .list .change{
+    margin-top: 4px;
+    margin-left: 10px;
+    font-size: 25px;
+    color: green;
+}
+
+.market-list .list .buy-button{
+    width: 80px;
+    margin-left: 80px;
+    margin-bottom: 10px;
+    border: none;
+    background: rgb(0, 255, 34);
+    color: #ffffff;
+    font-size: 20px;
+    border-radius:4px;
+    cursor: pointer;
+}
+
+.market-list .list .sell-button{
+    width: 80px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    border: none;
+    background: rgb(255, 123, 0);
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius:4px;
+}
+
+.grid-practice{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-content: center;
+    justify-content: center;
+    
+    width: 40%;
+    margin: auto;
+}
+
+.head{
+    font-size: 19px;
+    color: black;
+    font-weight: bold;
+    padding-right: 80px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.buy-this{
+    margin-right: 30px;
+}
+
+
+.sell-this{
+    margin-right: 30px;
+}
+
+.fourth-container{
+    background: #ffffff;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    width: 90%;
+}
+
+.margin{
+   
+    height: 95vh;
+}
+
+#margin{
+    display: grid;
+    align-content: center;
+}
+
+.title p{
+    font-size: 16px;
+    font-weight: 520;
+}
+
+.price{
+    margin-top: 13px;
+}
+
+.change{
+    margin-top: 8px;
+    font-size: 25px;
+    color: rgb(44, 214, 21);
+}
+
+.buy-button button{
+    background-color: rgb(44, 214, 21);
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    font-size: 18px;
+    width: 70%;
+    
+    color: #ffffff;
+    margin-top: 8px;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.sell-button button{
+    background-color: rgb(255, 136, 0);
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    font-size: 18px;
+    width: 70%;
+  
+    color: #ffffff;
+    margin-top: 8px;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.row{
+    margin-bottom: 26px;
+}
+
+/*sign up*/
+.container-sign-up{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+.email-input{
+    display: none;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: rgb(214, 212, 209);
+    font-size: 16px;
+    outline: none;
+    border-radius: 7px;
+}
+
+.sign-up-showcase{
+    padding-left:50px;
+    border-left: 2px solid black;
+}
+
+.sign-up-showcase h1{
+    color: gold;
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.sign-up-showcase img{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sign-up-showcase .welcome{
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sign-up-showcase .welcome-message{
+    text-align: center;
+}
+
+.sign-up-form{
+    padding-right: 120px;
+}
+
+.sign-up-form .email-mobile{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    padding-bottom: 20px;
+    cursor: pointer;
+}
+
+.sign-up-form .email-mobile h2{
+    border: 1px solid black;
+    border-radius: 4px;
+    color: rgb(150, 142, 142);
+    background-color: rgb(214, 212, 209);
+    padding-left: 55px;
+    font-size: 16px;
+    padding-right: 55px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.sign-up-form .email-mobile .mobile-option{
+    color: gold;
+    background-color: black;
+}
+
+.select-js option{
+    padding: 0px;
+    height: 0px;
+    width: 0px;
+    margin: 0px;
+}
+
+.sign-up-form .select-input{
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sign-up-form select{
+    padding: 10px;
+    outline: none;
+    background-color: rgb(214, 212, 209);
+    border: 0.5px solid black;
+    font-size: 16px;
+    width: 80px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.sign-up-form select option{
+    width: 50px;
+}
+
+.sign-up-form .select-input input{
+    padding: 10px;
+    font-weight: bold;
+    border: 0.5px solid black;
+    background-color: rgb(214, 212, 209);
+    font-size: 16px;
+    outline: none;
+    border-radius: 3px;
+}
+
+.sign-up-form .password{
+    color: gold;
+    padding-bottom: 10px;
+    font-size: 26px;
+}
+
+.password-input{
+    width: 94%;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: rgb(214, 212, 209);
+    font-size: 16px;
+    outline: none;
+    margin-bottom: 30px;
+    border-radius: 7px;
+}
+
+.sign-up-form .register{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: gold;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    outline: none;
+    cursor: pointer;
+}
+
+.have-an-account{
+    font-size: 14px;
+}
+
+.have-an-account a{
+    color: gold;
+}
+
+/* Sign In */
+.sign-in-head{
+    color: gold;
+    font-size: 28px;
+    padding-bottom: 8px;
+}
+
+.sign-in-form{
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    border: 0.5px solid black;
+    background-color: rgb(214, 212, 209);
+    font-size: 16px;
+    outline: none;
+    border-radius: 3px;
+}
+
+.signin-password-input{
+    width: 100%;
+   padding: 10px;
+   font-weight: bold;
+   border: 0.5px solid black;
+   background-color: rgb(214, 212, 209);
+   font-size: 16px;
+   outline: none;
+   border-radius: 3px;
+   margin-bottom: 35px;
+}
+
+.password-signin{
+    color: gold;
+    padding-bottom: 10px;
+    font-size: 26px;
+    margin-top: 35px;
+}
+
+.forgot-password{
+    margin-top: 12px;
+    padding-bottom: 8px;
+}
+
+.forgot-password a{
+    font-size: 16px;
+    color: gold;
+    font-weight: bold;
+}
+
+.have-an-account{
+    font-weight: bold;
+}
+
+#password{
+    color: gold;
+    font-size: 25px;
+    padding-bottom: 8px;
+}
+
+@media (max-width:1299px){
+    header .header-flex h1{
+        font-size: 20px;
+    }
+    header .menu-container{
+        display: none;
+    }
+
+    header .info{
+        display: none;
+    }
+
+    header .register{
+        display: none;
+    }
+    .hamburger-menu{
+        display: block;
+    }
+    .menu-bar{
+        visibility: visible;
+    }
+    .showcase-2{
+        margin-top: 15px ;
+        flex-direction: column;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .showcase-2 p:nth-child(1){
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+     .showcase-2 p:nth-child(2){
+         width: 100%;
+         text-align: center;
+         margin-bottom: 20px;
+     }
+     .buy-sell .buy a button{
+         font-size: 18px;
+         padding: 6px;
+         width: 90%;
+     }
+     .buy-sell .sell a button{
+        font-size: 18px;
+        padding: 6px;
+        width: 90%;
+     }
+     .what-we-do{
+         height: auto;
+         margin-top: 0px;
+         justify-content: center;
+         padding-left: 0px;
+     }
+     #what-we-do{
+         margin-top: 30px;
+         height: auto;
+     }
+     .what-we-do img{
+         width: 320px;
+     }
+     .what-we-do .content{
+         padding-left: 0px;
+     }
+     .what-we-do .content h1{
+         font-size: 20px;
+     }
+     .what-we-do .content ul li{
+         font-size: 16px;
+     }
+     .monthly{
+         padding-left: 40px;
+         margin-top: 15px;
+         display: none;
+     }
+     .statistics{
+         font-size: 16px;
+         margin-top: 25px;
+     }
+     .margin{
+         display: none;
+     }
+     .fourth-container{
+         display: none;
+     }
+     .margin{
+         display: none;
+     }
+     #margin{
+         display: none;
+     }
+     .grid-practice{
+         display: none;
+     }
+}
+
+@media (max-width: 981px){
+    .sign-up-showcase{
+        display: none;
+    }
+    .sign-up-form .register{
+        width: 100%;
+    }
+    .sign-up-form .password{
+        font-size: 25px;
+    }
+    .sign-in-head{
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 595px) {
+    header .header-flex h1{
+        font-size: 16px;
+    }
+    .what-we-do{
+        display: unset;
+        text-align: center;
+    }
+    .menu-bar{
+        top: 7%;
+        z-index: 10;
+    }
+    .what-we-do img{
+        width: 280px;
+    }
+    .what-we-do .content ul li{
+        list-style: none;
+    }
+    #what-we-do{
+        margin-bottom: 30px;
+    }
+    .buy-sell{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .statistics p{
+        padding-left: 20px;
+        padding-right: 30px;
+    }
+}
