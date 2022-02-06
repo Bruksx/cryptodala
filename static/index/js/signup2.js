@@ -9,7 +9,7 @@ fetch('countries.json')
       let output = ''
       countries.forEach((country)=>{
          output+= `
-          <option>${country.code} ${country.name}</option>
+          <option>${country.code}</option>
          `
       })
       select.innerHTML = output
