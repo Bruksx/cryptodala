@@ -1,8 +1,7 @@
 const select = document.querySelector('.select-js')
 
 
-
-fetch('countries.json')
+fetch('/static/index/js/countries.json')
   .then((response) => response.json())
   .then((data) => {
       let countries = data.countries

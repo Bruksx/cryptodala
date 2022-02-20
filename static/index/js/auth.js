@@ -8,6 +8,7 @@ var password = document.getElementsByClassName("password-input")
 function register(){
     //check if email or mobile was selected
     
+    
     if (mobile.style.display ==""){
         var contact_type ="mobile"
     }
@@ -21,11 +22,12 @@ function register(){
     }
 
     var request = new XMLHttpRequest
+
     request.onload = function(){
         alert(this.responseText)
         
     }
-    //alert("email="+email.innerHTML+"&mobile="+mobile+"&password="+password.innerHTML)
+    
     request.open("POST", "/register")
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
     if (contact_type=="email"){
@@ -35,4 +37,20 @@ function register(){
         request.send("contact_type="+contact_type+"&country_code="+country_code.value+"&mobile="+mobile.value+"&email="+email.value+"&password="+password[2].value)
     }
     
+}
+
+function login(){
+    var email_or_phone= document.getElementById("email-or-phone")
+    var password= document.getElementById("login-password")
+
+    var request= new XMLHttpRequest
+    request.onload = function(){
+        data= JSON.parse(this.responseText)
+        if (data["status"]== "success"){
+            window.location.replace("http://127.0.0.1:8000/account")
+        }
+    }
+    request.open("POST", "/login")
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+    request.send(`email_or_phone=${email_or_phone.value}&password=${password.value}`)
 }

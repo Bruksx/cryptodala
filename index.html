@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/index/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     <title>Home</title>
 </head>
 <body>
@@ -28,24 +29,57 @@
          <a href="#what-we-do">WHAT WE DO</a>
      </div>
      <div class="register">
-         <a href="#" class="sign-in-button">SIGN IN |</a>
-         <a href="#" class="sign-up-button">REGISTER</a>
-     </div>
+        <a href="#"  class="sign-in-button">SIGN IN |</a>
+         <a href="#"  class="sign-up-button">REGISTER</a>
+      <a href="profile.html" style="display: none;"> <img src="/static/index/img/img_avatar.png" alt="avatar" class="user-img"></a>
+         <span class="triangle-down" style="display: none;"></span>
+      </div>
      <div class="info">
          <a href="#">SUPPORTED GAMES |</a>
          <a href="#">$USD |</a>
          <a href="#">ENG</a>
      </div>
 </header>
+<div class="user-menu-bar">
+    <div class="user-first-section">
+        <img src="/static/index/img/img_avatar.png" alt="avatar">
+        <div class="menu-number-username">
+            <h4>+63 9....</h4>
+            <p>aej3434Qr</p>
+        </div>
+    </div>
+    <div class="user-list">
+        <p>Verify</p>
+        <p>Pay</p>
+        <p>Payment Methods</p>
+        <p>Notifications</p>
+        <p>Security</p>
+        <p>Settings</p>
+        <p>Help and Support</p>
+        <p>Log out</p>
+    </div>
+</div>
 <!---Showcase Area-->
 <div class="spa-1">
+
 <div class="container">
 <div class="showcase">
-    <div class="carousel">
-    <div class="carousel-item active"></div>
-    <div class="carousel-item"></div>
-    <div class="carousel-item"></div>
-   </div>
+ <!-- Swiper -->
+ <div class="swiper mySwiper">
+    <div class="swiper-wrapper this">
+      <div class="swiper-slide resize">
+          <img src="/static/index/img/maxresdefault(1).jpg">
+      </div>
+      <div class="swiper-slide resize">
+          <img src="/static/index/img/IMG_20220129_171915_691.jpeg">
+      </div>
+      <div class="swiper-slide resize">
+          <img src="/static/index/img/CryptoBlades_2(1).png">
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
     <div class="showcase-2">
     <p>Cryptodala.com is a crypto gaming specific exchange that supports most tokens in the Smart Chain, Ethereum, Solana & Avalanche networks</p>
     <p><strong>Only</strong> DIRECT CASH-IN, CASH-OUT <strong>PLATFORM</strong> FOR <a href="#">Cryptogames & Investments</a></p>
@@ -180,7 +214,16 @@
                 <div class="head">CHART</div> 
                     <div class="title row">
                         <div class="circle"></div>
-                         <p>MONSTA INFINITE</p>
+                         <p class="coin-btc">MONSTA INFINITE</p>
+                    </div>
+                    <div class="price row btc-price">P231.22</div>
+                    <div class="change row">+23%</div>
+                    <div class="buy-button row"><button>Buy</button></div>
+                    <div class="sell-button row"><button>Sell</button></div>
+                    <img src="static/index/img/IMG_20220115_093151_927.png" class="chart row" width="100">
+                    <div class="title row">
+                        <div class="circle"></div>
+                         <p class="coin-name">AXIE INFINITE (AXS)</p>
                     </div>
                     <div class="price row">P231.22</div>
                     <div class="change row">+23%</div>
@@ -189,7 +232,7 @@
                     <img src="static/index/img/IMG_20220115_093151_927.png" class="chart row" width="100">
                     <div class="title row">
                         <div class="circle"></div>
-                         <p>AXIE INFINITE (AXS)</p>
+                         <p class="coin-name">AXIE INFINITE (SLS)</p>
                     </div>
                     <div class="price row">P231.22</div>
                     <div class="change row">+23%</div>
@@ -198,16 +241,7 @@
                     <img src="static/index/img/IMG_20220115_093151_927.png" class="chart row" width="100">
                     <div class="title row">
                         <div class="circle"></div>
-                         <p>AXIE INFINITE (SLS)</p>
-                    </div>
-                    <div class="price row">P231.22</div>
-                    <div class="change row">+23%</div>
-                    <div class="buy-button row"><button>Buy</button></div>
-                    <div class="sell-button row"><button>Sell</button></div>
-                    <img src="static/index/img/IMG_20220115_093151_927.png" class="chart row" width="100">
-                    <div class="title row">
-                        <div class="circle"></div>
-                         <p>BOMBERCOIN (BCOIN)</p>
+                         <p class="coin-name">BOMBERCOIN (BCOIN)</p>
                     </div>
                     <div class="price row">P231.22</div>
                     <div class="change row">+23%</div>
@@ -220,15 +254,14 @@
             </div>
         </div>
     </div>
-     
     <div class="sign-in-cont">
     <div class="container-sign-up" id="container-sign-up">
         <div class="sign-up-form">
             <h2 class="sign-in-head">Email or Mobile Number</h2>
-            <input type="password" placeholder="Enter Here" class="password-input">
+            <input id="email-or-phone" type="text" placeholder="Enter Here" class="password-input">
            <h2 id="password">Password</h2>
-           <input type="password" placeholder="Enter Here" class="password-input"> <br>
-           <input type="submit" value="Sign In" class="register">
+           <input id="login-password" type="password" placeholder="Enter Here" class="password-input"> <br>
+           <input type="submit" value="Sign In" class="register" onclick="login()">
            <div class="forgot-password"><a href="#">Forgot password</a></div>
            <div class="have-an-account"><strong>Don't have an account?</strong> <a href="signup.html">Register now</a></div>
         </div>
@@ -282,6 +315,7 @@
         <a href="#" class="sign-up-btn">REGISTER</a>
         <a href="#">SUPPORTED GAMES</a>
    </div>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
  <script src="static/index/js/signup2.js"></script>
 <script src="static/index/js/main.js"></script>
 <script src="static/index/js/auth.js"></script> 
