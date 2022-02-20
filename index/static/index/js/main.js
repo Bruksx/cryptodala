@@ -11,18 +11,35 @@ const hamburger = document.querySelector('.hamburger-menu');
 const buyControl = document.querySelector('.buy-control');
 const sellControl = document.querySelector('.sell-control');
 
-//Slideshow
-const allSlides = document.querySelectorAll('.carousel-item')
-setInterval(()=>{
-    const current = document.querySelector('.active');
-    current.classList.remove('active');
-    if(current.nextElementSibling){
-        current.nextElementSibling.classList.add('active')
-    }else{
-        allSlides[0].classList.add('active');
-    }
-},2000)
 
+//Show or hide User profile
+/*const userImage = document.querySelector('.user-img');
+userImage.addEventListener('click', ()=>{
+    let menuBar = document.querySelector('.menu-bar');
+
+    menuBar.style.right = '-100%';
+    let spa = document.querySelector('.spa-1').style.display = 'none';
+    let spaMarket = document.querySelector('.spa-market').style.display = 'none';
+    let signup = document.querySelector('.sign-up-cont').style.display = 'nonr';
+    let signin = document.querySelector('.sign-in-cont').style.display = 'none';
+    let profile = document.querySelector('.profile').style.display = 'block'
+}) */
+
+//User Menu List
+const userMenu = document.querySelector('.triangle-down');
+let userMenuOpen = false
+userMenu.addEventListener('click', ()=>{
+   let menuBar = document.querySelector('.user-menu-bar');
+   if(userMenuOpen === false){
+       menuBar.style.display = 'block'
+       userMenuOpen = true;
+   } else{
+    menuBar.style.display = 'none'
+    userMenuOpen = false;
+   }
+})
+
+//Buy and Sell
 buyControl.addEventListener('click', ()=>{
     modal.style.display = 'block';
 
@@ -158,6 +175,7 @@ signInButton.addEventListener('click', ()=>{
     let spaMarket = document.querySelector('.spa-market').style.display = 'none';
     let signIn = document.querySelector('.sign-in-cont').style.display = 'block';
     let signup = document.querySelector('.sign-up-cont').style.display = 'none';
+    let profile = document.querySelector('.profile').style.display = 'none'
     
 });
 
@@ -168,6 +186,7 @@ signUpButton.addEventListener('click', ()=>{
     let spaMarket = document.querySelector('.spa-market').style.display = 'none';
     let signup = document.querySelector('.sign-up-cont').style.display = 'block';
     let signin = document.querySelector('.sign-in-cont').style.display = 'none';
+    let profile = document.querySelector('.profile').style.display = 'none'
 })
 
 //SPA FOR HOME
@@ -177,6 +196,7 @@ homeButton.addEventListener('click', ()=>{
     let spaMarket = document.querySelector('.spa-market').style.display = 'block';
     let signup = document.querySelector('.sign-up-cont').style.display = 'none';
     let signin = document.querySelector('.sign-in-cont').style.display = 'none';
+    let profile = document.querySelector('.profile').style.display = 'none'
 })
 
 const homeBtn = document.querySelector('.index');
@@ -185,6 +205,7 @@ homeBtn.addEventListener('click', ()=>{
     let spaMarket = document.querySelector('.spa-market').style.display = 'block';
     let signup = document.querySelector('.sign-up-cont').style.display = 'none';
     let signin = document.querySelector('.sign-in-cont').style.display = 'none';
+    let profile = document.querySelector('.profile').style.display = 'none'
 })
 
 
@@ -197,6 +218,7 @@ signInBtn.addEventListener('click', ()=>{
     let spaMarket = document.querySelector('.spa-market').style.display = 'none';
     let signIn = document.querySelector('.sign-in-cont').style.display = 'block';
     let signup = document.querySelector('.sign-up-cont').style.display = 'none';
+    let profile = document.querySelector('.profile').style.display = 'none'
     
 });
 
@@ -211,4 +233,43 @@ signUpBtn.addEventListener('click', ()=>{
     let spaMarket = document.querySelector('.spa-market').style.display = 'none';
     let signup = document.querySelector('.sign-up-cont').style.display = 'block';
     let signin = document.querySelector('.sign-in-cont').style.display = 'none';
+    let profile = document.querySelector('.profile').style.display = 'none'
 })
+
+//SwiperJS
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 'auto',
+    spaceBetween: 90,
+    centeredSlides: true,
+    grabCursor: true,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+/*Integrating coins to UI
+ fetch("http://api.coinlayer.com/api/list?access_key=933cbf217cacff6efbee47f534cdc1f6")
+ .then((response) => response.json())
+ .then((data) => {
+  console.log(data);
+  let cryptoData = data.crypto;
+  let coinbtc = document.querySelector('.coin-btc');
+  coinbtc.innerHTML = cryptoData.BTC.name
+  let coinCircle = document.querySelector('.circle-btc');
+  let imageBtc = cryptoData.BTC.icon_url;
+  coinCircle.style.backgroundImage = `url(${imageBtc})`
+ })
+
+ /*fetch('http://api.coinlayer.com/api/live?access_key=933cbf217cacff6efbee47f534cdc1f6')
+ .then((response)=>response.json())
+ .then(data => {
+     let btcPrice = data.rates.BTC;
+     let priceBtc = document.querySelector('.btc-price');
+     priceBtc.innerHTML = btcPrice.toFixed(2)
+ })*/

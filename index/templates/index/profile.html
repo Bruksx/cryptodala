@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/index/style.css">
+    <title>Profile</title>
+</head>
+<body>
+    <header>
+        <div class="header-flex">
+           <img src="/static/index/img/logo 2.jpg" alt="logo" width="50">
+           <h1 class="home"><a href="index.html" style="color: gold;text-decoration: none;">CRYPTODALA</a></h1>
+        </div>
+        <div class="hamburger-menu">
+           <div class="bar-1"></div>
+           <div class="bar-2"></div>
+           <div class="bar-3"></div>
+       </div>
+        <div class="menu-container">
+            <a href="index.html" class="index">HOME</a>
+            <a href="#" class="buy-button-click">BUY</a>
+            <a href="#" class="sell-button-click">SELL</a>
+            <a href="#">P2P</a>
+            <a href="index.html">MARKETS</a>
+            <a href="index.html">WHAT WE DO</a>
+        </div>
+        <div class="register">
+           <a href="#" style="display: none;" class="sign-in-button">SIGN IN |</a>
+            <a href="#" style="display: none;" class="sign-up-button">REGISTER</a>
+            <img src="/static/index/img/img_avatar.png" alt="avatar" class="user-img">
+            <span class="triangle-down"></span>
+         </div>
+        <div class="info">
+            <a href="#">SUPPORTED GAMES |</a>
+            <a href="#">$USD |</a>
+            <a href="#">ENG</a>
+        </div>
+   </header>
+   <!--User menu-->
+   <div class="user-menu-bar">
+    <div class="user-first-section">
+        <img src="/static/index/img/img_avatar.png" alt="avatar">
+        <div class="menu-number-username">
+            <h4>+63 9....</h4>
+            <p>aej3434Qr</p>
+        </div>
+    </div>
+    <div class="user-list">
+        <p>Verify</p>
+        <p>Pay</p>
+        <p>Payment Methods</p>
+        <p>Notifications</p>
+        <p>Security</p>
+        <p>Settings</p>
+        <p>Help and Support</p>
+        <p>Log out</p>
+    </div>
+</div>
+<!--Profile Menu-->
+<div class="profile">
+    <div class="profile-container">
+        <div class="profile-list">
+            <p style="color: gold;">Profile</p>
+            <p>Verify</p>
+            <p>Pay</p>
+            <p>Payment Methods</p>
+            <p>Notifications</p>
+            <p>Security</p>
+            <p>Settings</p>
+            <p>Help and Support</p>
+        </div>
+            <div class="profile-menu">
+            <div class="inner-profile-menu">
+                <img src="/static/index/img/img_avatar.png" alt="avatar" class="user-avatar">
+                <div class="profile-details">
+                    <h3>+{{country_code}} <span class="number-code">{{phone}}</span></h3>
+                    <p>aej3434Qr</p>
+                    <div class="username-email-password">
+                        <p class="user-username">Username</p>
+                        <p class="user-email">Email</p>
+                        <p class="user-password">Password</p>
+                    </div>
+                    <div class="user-name-email-password">
+                        <p>edgers</p>
+                        <p class="user-name-email">{{email}}</p>
+                        <p class="user-name-password"> {{password}}</p>
+                    </div>
+                    <button class="change-details">Change details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<!--Buy Modal-->
+<div class="buy-modal">
+    <div class="header-modal">
+        <div class="buy-sell-modal">
+            <p class="buy-toggle">buy</p>
+            <p class="sell-toggle">sell</p>
+        </div>
+        <div class="close">x</div>
+    </div>
+    <div class="sell-modal">
+       <div>
+        <p class="sell-modal-pay">PAY</p>
+    </div>
+    <div class="sell-option-modal" id="fhf">
+            <input type="text">
+            <select>
+                <option value="cryptocurrency">Cryptocurrency</option>
+                <option value="cryptocurrency">Fiat</option>
+            </select>
+    </div>
+    </div>
+    <div class="modal-container">
+        <div class="sell-modal">
+            <p class="sell-modal-buy">BUY</p>
+            <div class="sell-option-modal">
+                <input type="text">
+                <select>
+                    <option value="currency">Currency</option>
+                    <option value="cryptocurrency">Cryptocurrency</option>
+                </select>
+            </div>
+        </div>
+    </div>
+      <div class="select-modal">
+        <select>
+            <option value="payment details of transaction">Payment details of transaction</option>
+        </select> <br>
+    </div>
+        <button>PAY | TOTAL </button>
+</div>
+
+<!--Sell Modal-->
+<div class="selling-modal">
+    <div class="header-modal">
+        <div class="buy-sell-modal">
+            <p id="buy-toggle">buy</p>
+            <p id="sell-toggle">sell</p>
+        </div>
+        <div class="close-sell">x</div>
+    </div>
+    <div class="sell-modal">
+       <div>
+        <p class="sell-modal-sell">SELL</p>
+    </div>
+    <div class="sell-option-modal" id="fhf">
+            <input type="text">
+            <select>
+                <option value="cryptocurrency">Cryptocurrency</option>
+                <option value="cryptocurrency">Fiat</option>
+            </select>
+    </div>
+    </div>
+    <div class="modal-container">
+        <div class="sell-modal">
+            <p class="sell-modal-receive">RECEIVE</p>
+            <div class="sell-option-modal">
+                <input type="text">
+                <select>
+                    <option value="currency">Currency</option>
+                    <option value="cryptocurrency">Cryptocurrency</option>
+                </select>
+            </div>
+        </div>
+    </div>
+      <div class="select-modal">
+        <select>
+            <option value="payment details of transaction">Payment details of transaction</option>
+        </select> <br>
+    </div>
+        <button>PAY | TOTAL </button>
+</div>
+
+ <!--Menu bar-->
+ <div class="menu-bar">
+    <a  class="button-click">BUY</a> 
+    <a class="button-sell-click">SELL</a> 
+    <a href="index.html">P2P</a>
+    <a href="index.html">MARKETS</a> 
+    <a href="index.html">WHAT WE DO</a>
+    <a href="index.html" class="sign-in-btn">SIGN IN</a>
+    <a href="index.html" class="sign-up-btn">REGISTER</a>
+    <a href="index.html">SUPPORTED GAMES</a>
+</div>
+
+ 
+<script src="/static/index/js/profile.js"></script>
+</body>
+</html>

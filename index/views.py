@@ -14,26 +14,38 @@ def register(request):
      if cd.get("contact_type")== "mobile":
           full_phone=  cd["country_code"] + cd["mobile"]
           full_phone =  "".join(full_phone.split())
-          already_exists= customer.objects.filter(phone=full_phone)
+          print(full_phone)
+
+          #check if user already exists
+          already_exists= customer.objects.filter(phone=cd["mobile"])
           if already_exists:
                data ={
                     "status": "error",
                     "message": "A profile has already been opened with this phone number"
                }
-               
+          #check if phone number is valid
+          elif full_phone.isdigit() == False:
+                data ={
+                    "status": "error",
+                    "message": "Invalid phone number"
+               }
+
           else:
                data={
                     "status":"success",
                     "message":"Profile created successfully"
                }
-               new_profile = customer(phone=full_phone)
+               new_profile = customer(
+                    phone=cd["mobile"],
+                    phone_code= cd["country_code"]
+               )
                new_profile.save()
           
           return JsonResponse(data)
 
      
      if cd.get("contact_type")== "email":
-          already_exists= customer.objects.filter(phone=cd["email"])
+          already_exists= customer.objects.filter(email=cd["email"])
           if already_exists:
                data ={
                     "status": "error",
@@ -49,33 +61,41 @@ def register(request):
                new_profile.save()
           
           return JsonResponse(data)
-     """
-	#check if email already exists
-     already_exists= customer.objects.filter(email=cd["email"])
-     print(already_exists)
-     if len(already_exists) > 0:
-	     messages.error(request, 'Document deleted.')
-	     return redirect("registration")
-		
-     #check if password matches
-     if cd["password"] != cd["confirm_password"]:
-          messages.error(request, 'Password do not match')
-          return redirect("registration")
-     #check password length
-     password= cd["password"]
-     if len(password)<5:
-          messages.error(request, 'Password too short. Should be at least 6 characters')
-          return redirect("registration")
-		
-     new_user= collector(
-	     first_name=cd["first_name"],
-	     middle_name=cd["middle_name"],
-	     last_name= cd["last_name"],
-	     password= cd["password"],
-          email= cd["email"],
-	     )
-     new_user.save()
-		
-     messages.error(request,"Registration Successful")
-     """
-     return redirect("/")
+
+@csrf_exempt
+def login(request):
+     cd=request.POST
+
+     #check if user exists
+     try:
+          exist= customer.objects.filter(phone=cd["email_or_phone"])[0]
+          user_type= exist.phone
+     
+     except IndexError:
+          try:
+               exist= customer.objects.filter(email=cd["email_or_phone"])[0]
+               user_type=exist.email
+          except IndexError:
+               data= {
+               "status":"error",
+               "message":"This email or phone number is not registered",
+          }
+               return JsonResponse(data)
+
+
+     #check password
+     if exist.password==cd["password"]:
+          data= {
+               "status":"success",
+               "message":"Logged in successfully",
+          }
+          request.session["logged_in"]= user_type
+          request.session.modified = True
+          return JsonResponse(data)
+
+     else:
+          data= {
+              "status":"error",
+              "message":"incorrect email/phone or password",
+          } 
+          return JsonResponse(data)

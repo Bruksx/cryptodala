@@ -3,12 +3,6 @@
     padding: 0;
 }
 
-.spa-1{
-   
-}
-.spa-market{
-}
-
 .sign-in-cont{
     display: none;
 }
@@ -16,40 +10,139 @@
     display: none;
 }
 
-.carousel{
-    height: 28rem;
-    width: 100vw;
-    position: relative;
+.swiper{
+    margin-top: 10px;
+    height: 70vh;
 }
 
-.carousel-item{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+.swiper-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.carousel-item.active{
-    opacity: 1;
+.swiper-slide img{
+    width: 109%;
+    object-fit: cover;
 }
 
-.carousel-item:nth-child(1){
-   background: url('/static/index/img/CryptoBlades_2\(1\).png');
-   background-position: center;
-   background-size: cover;
-   background-repeat: no-repeat;
+.swiper .this{
+    max-width: 800px;
 }
 
-.carousel-item:nth-child(2){
-    background: url('/static/index/img/maxresdefault\(1\).jpg') no-repeat center center/cover ;
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
+    color: gold;
 }
 
-.carousel-item:nth-child(3){
-    background: url('/static/index/img/IMG_20220129_171915_691.jpeg') no-repeat center center/cover ;
+.swiper-button-next:after, .swiper-button-prev:after{
+    color: gold;
 }
+
+/*Profile section*/
+.profile{
+   background: #252424;
+   margin-top: 0px;
+   height: 100vh;
+   padding: 10px;
+   color: #ffffff;
+}
+
+.profile-container{
+    display: flex;
+}
+
+.profile-list{
+   padding-top: 20px;
+   width: 25vw;
+   padding-left: 20px;
+   border-right: 3px solid #000000;
+   height: 95vh;
+}
+
+.profile-list p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    font-size: 19px;
+    font-weight: bolder;
+    color: #ffffff;
+}
+
+.inner-profile-menu{
+    padding-top: 20px;
+    padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.inner-profile-menu img{
+    object-fit: cover;
+    border: 2px solid gold;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.inner-profile-menu h3{
+    font-weight: bold;
+    color: gold;
+    font-size: 22px;
+}
+
+.inner-profile-menu p{
+    font-size: 14px;
+    color: #746e6e;
+    padding-left: 2px;
+}
+
+.username-email-password{
+    padding-top: 5px;
+    padding-bottom: 2px;
+    display: flex;
+}
+
+.username-email-password p{
+    font-size: 16px;
+    color: #ffffff;
+   font-weight: bold;
+   padding-right: 10px;
+}
+
+.username-email-password .user-email{
+    padding-right: 115px;
+    padding-left: 5px;
+}
+
+.user-name-email-password{
+    display: flex;
+    padding-bottom: 8px;
+}
+
+.user-name-email-password p{
+   font-size: 13px;
+}
+
+.user-name-email-password .user-name-email{
+    padding-left: 50px;
+}
+
+.user-name-email-password .user-name-password{
+    padding-left: 10px;
+}
+
+.change-details{
+    background-color: gold;
+    width: 70%;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    padding: 3px;
+    border-radius: 10px;
+}
+/*End of profie section*/
+
 
 body{
     font-family: sans-serif;
@@ -474,6 +567,14 @@ header .register a{
     font-weight: bold;
 }
 
+.user-img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 header .info{
     padding-right: 10px;
 }
@@ -482,10 +583,6 @@ header .info a{
     color: gold;
     text-decoration: none;
     font-weight: bold;
-}
-
-.showcase{
-   
 }
 
 .showcase p{
@@ -687,6 +784,17 @@ header .info a{
     text-align: center;
     margin-right: 10px;
     background-color: gray;
+}
+
+.circle-btc{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .market-list .list .price{
@@ -950,6 +1058,66 @@ header .info a{
     border-radius: 7px;
 }
 
+.triangle-down{
+    width: 0;
+	height: 0;
+    margin-left: 4px;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-top: 12px solid gold;
+    cursor: pointer;
+}
+
+/*user menu bar */
+.user-menu-bar{
+    position: absolute;
+    top: 80px;
+    z-index: 10;
+    right: 290px;
+    display: none;
+    color: #ffffff;
+}
+
+.user-first-section{
+    background-color: #000000;
+    padding: 10px;
+    display: flex;
+    padding-left: 20px;
+    padding-right: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-first-section h4{
+    color: gold;
+    padding-left: 5px;
+    font-size: 20px;
+}
+
+.user-first-section p{
+    font-size: 12px;
+    padding-left: 5px;
+}
+
+.user-first-section img{
+    object-fit: cover;
+    width: 50px;
+    border: 2px solid gold;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.user-list{
+    background: #312929;
+    padding: 15px;
+}
+
+.user-list p{
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+/*user menu bar end*/
+
 .sign-up-form .register{
     width: 100%;
     padding: 10px;
@@ -962,6 +1130,7 @@ header .info a{
     outline: none;
     cursor: pointer;
 }
+
 
 .have-an-account{
     font-size: 14px;

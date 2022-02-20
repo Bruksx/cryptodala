@@ -1,7 +1,6 @@
 const select = document.querySelector('.select-js')
 
 
-
 fetch('/static/index/js/countries.json')
   .then((response) => response.json())
   .then((data) => {

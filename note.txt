@@ -6,3 +6,5 @@ python manage.py makemigrations
 python manage.py migrate
 
 from index.models import customer
+
+python manage.py createsuperuser
