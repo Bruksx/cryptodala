@@ -2,10 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .models import customer
 from django.views.decorators.csrf import csrf_exempt
+import random
 
 # Create your views here.
 def index(request):
-     return render(request, "index/index.html")
+     random_variable= random.randint(1,10000)
+     context= {
+          "random_variable": random_variable,
+     }
+     return render(request, "index/index.html", context)
 
 @csrf_exempt
 def register(request):

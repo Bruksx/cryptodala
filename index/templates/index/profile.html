@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/index/style.css">
+    <link rel="stylesheet" href="/static/index/style.css?{{random_variable}}">
     <title>Profile</title>
 </head>
 <body>
     <header>
         <div class="header-flex">
            <img src="/static/index/img/logo 2.jpg" alt="logo" width="50">
-           <h1 class="home"><a href="index.html" style="color: gold;text-decoration: none;">CRYPTODALA</a></h1>
+           <h1 class="home"><a href="?" style="color: gold;text-decoration: none;">CRYPTODALA</a></h1>
         </div>
         <div class="hamburger-menu">
            <div class="bar-1"></div>
@@ -29,11 +29,7 @@
         <div class="register">
            <a href="#" style="display: none;" class="sign-in-button">SIGN IN |</a>
             <a href="#" style="display: none;" class="sign-up-button">REGISTER</a>
-            <img src="/static/index/img/img_avatar.png" alt="avatar" class="user-img">
             <span class="triangle-down"></span>
-         </div>
-        <div class="info">
-            <a href="#">SUPPORTED GAMES |</a>
             <a href="#">$USD |</a>
             <a href="#">ENG</a>
         </div>
@@ -41,7 +37,7 @@
    <!--User menu-->
    <div class="user-menu-bar">
     <div class="user-first-section">
-        <img src="/static/index/img/img_avatar.png" alt="avatar">
+        <img src="{{avatar}}" alt="avatar">
         <div class="menu-number-username">
             <h4>+63 9....</h4>
             <p>aej3434Qr</p>
@@ -69,11 +65,11 @@
             <p>Notifications</p>
             <p>Security</p>
             <p>Settings</p>
-            <p>Help and Support</p>
+            <p class="help-support">Help and Support</p>
         </div>
             <div class="profile-menu">
             <div class="inner-profile-menu">
-                <img src="/static/index/img/img_avatar.png" alt="avatar" class="user-avatar">
+                <img src="{{avatar}}?{{random_variable}}" alt="avatar" class="user-avatar">
                 <div class="profile-details">
                     <h3>+{{country_code}} <span class="number-code">{{phone}}</span></h3>
                     <p>aej3434Qr</p>
@@ -83,17 +79,41 @@
                         <p class="user-password">Password</p>
                     </div>
                     <div class="user-name-email-password">
-                        <p>edgers</p>
-                        <p class="user-name-email">{{email}}</p>
-                        <p class="user-name-password"> {{password}}</p>
-                    </div>
-                    <button class="change-details">Change details</button>
+                        <p>{{firstname}}</p>
+                        <p class="user-name-email">test@gmail.com</p>
+                        <p class="user-name-password">*********</p>
                 </div>
+                <button class="change-details">Change details</button>
             </div>
-        </div>
     </div>
-</div> 
+</div>
+<!--Profile Form-->
+<form class="profile-form" method="post" enctype="multipart/form-data" action="modify">
+    <p class="close-form">x</p>
+    <label>First name:</label>
+    <input type="text" value="{{firstname}}" name="firstname">
+    <label>Middle name:</label>
+    <input type="text" value="{{middlename}}" name="middlename">
+    <label>Last name:</label>
+    <input type="text" value="{{lastname}}" name="lastname">
+    <label>Email:</label>
+    <input type="email" value="{{email}}" name="email">
+    <label>Upload image</label>
+    <input type="file" name="image">
+    <input type="submit" value="submit" class="submit">
+</form>
 
+<!--Help and support form-->
+<form class="profile-form help-button">
+    <p class="close-help">x</p>
+    <label>Full name:</label>
+    <input type="text">
+    <label>Email:</label>
+    <input type="email">
+    <label>Message</label>
+    <textarea name="" id="" cols="38" rows="10"></textarea>
+    <input type="submit" value="send" class="submit">
+</form>
 <!--Buy Modal-->
 <div class="buy-modal">
     <div class="header-modal">
@@ -189,6 +209,6 @@
 </div>
 
  
-<script src="/static/index/js/profile.js"></script>
+<script src="/static/index/js/profile.js?{{random_variable}}"></script>
 </body>
 </html>

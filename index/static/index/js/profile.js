@@ -70,3 +70,39 @@ sellBtton.addEventListener('click', ()=>{
     sellModal.style.display = 'block'
     open = false
 })
+
+  /*profile form*/
+  const changeDetails = document.querySelector('.change-details');
+
+  changeDetails.addEventListener('click', ()=>{
+    const profileForm = document.querySelector('.profile-form');
+    profileForm.style.display = 'block'
+    const closeForm = document.querySelector('.close-form');
+    closeForm.addEventListener('click', ()=>{
+        const profileForm = document.querySelector('.profile-form');
+        profileForm.style.display = 'none'
+    })
+  })
+
+  /*Help and support*/
+  const helpSupport = document.querySelector('.help-support');
+
+  helpSupport.addEventListener('click', ()=>{
+    const helpButton = document.querySelector('.help-button');
+    helpButton.style.display = 'block'
+    const closeHelp = document.querySelector('.close-help');
+    closeHelp.addEventListener('click', ()=>{
+        const helpButton = document.querySelector('.help-button');
+        helpButton.style.display = 'none'
+    })
+  })
+
+
+
+
+
+
+
+
+
+  /*profile form ends */

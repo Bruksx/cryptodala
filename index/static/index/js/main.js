@@ -12,19 +12,6 @@ const buyControl = document.querySelector('.buy-control');
 const sellControl = document.querySelector('.sell-control');
 
 
-//Show or hide User profile
-/*const userImage = document.querySelector('.user-img');
-userImage.addEventListener('click', ()=>{
-    let menuBar = document.querySelector('.menu-bar');
-
-    menuBar.style.right = '-100%';
-    let spa = document.querySelector('.spa-1').style.display = 'none';
-    let spaMarket = document.querySelector('.spa-market').style.display = 'none';
-    let signup = document.querySelector('.sign-up-cont').style.display = 'nonr';
-    let signin = document.querySelector('.sign-in-cont').style.display = 'none';
-    let profile = document.querySelector('.profile').style.display = 'block'
-}) */
-
 //User Menu List
 const userMenu = document.querySelector('.triangle-down');
 let userMenuOpen = false
