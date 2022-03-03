@@ -97,6 +97,20 @@ sellBtton.addEventListener('click', ()=>{
     })
   })
 
+  /*Verification Image */
+  const verifyImage = document.querySelector('.verify-profile');
+
+  verifyImage.addEventListener('click', ()=>{
+    const verifyButton = document.querySelector('.verify-button');
+    verifyButton.style.display = 'block'
+    const closeVerify = document.querySelector('.close-verify');
+    closeVerify.addEventListener('click', ()=>{
+        const verifyButton = document.querySelector('.verify-button');
+       verifyButton.style.display = 'none'
+    })
+  })
+
+
 
 
 

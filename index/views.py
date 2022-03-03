@@ -15,8 +15,11 @@ def index(request):
 @csrf_exempt
 def register(request):
      cd= request.POST
+     print(cd)
      
      if cd.get("contact_type")== "mobile":
+          print["mobile"]
+
           full_phone=  cd["country_code"] + cd["mobile"]
           full_phone =  "".join(full_phone.split())
           print(full_phone)
@@ -42,7 +45,8 @@ def register(request):
                }
                new_profile = customer(
                     phone=cd["mobile"],
-                    phone_code= cd["country_code"]
+                    phone_code= cd["country_code"],
+                    password = cd["password"]
                )
                new_profile.save()
           
@@ -62,7 +66,9 @@ def register(request):
                     "status":"success",
                     "message":"Profile created successfully"
                }
-               new_profile = customer(email=cd["email"])
+               new_profile = customer(
+                    email=cd["email"],
+                    password = cd["password"])
                new_profile.save()
           
           return JsonResponse(data)
@@ -70,11 +76,14 @@ def register(request):
 @csrf_exempt
 def login(request):
      cd=request.POST
+     print(cd)
 
      #check if user exists
      try:
           exist= customer.objects.filter(phone=cd["email_or_phone"])[0]
           user_type= exist.phone
+          print(exist)
+          print(exist.password)
      
      except IndexError:
           try:

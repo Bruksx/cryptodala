@@ -12,6 +12,7 @@ class customer(models.Model):
 	lastname = models.CharField(max_length = 200, default="")
 	verified = models.BooleanField(default = False)
 	avatar = models.CharField(max_length=60, default="/static/index/img/img_avatar.png")
+	full_phone_num = models.CharField(max_length=15, default="",)
 
 def handle_uploaded_file(name, f, extension):
     with open("account/static/avatar/{}.{}".format(name, extension), 'wb+') as destination:

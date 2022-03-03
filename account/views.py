@@ -32,11 +32,11 @@ def index(request):
     }
 
     if request.GET.get("profile"):
-         return render(request, "index/profile.html", context)
+         return render(request, "index/index.html", context)
 
 
 
-    return render(request, "index/index.html", context)
+    return render(request, "index/profile.html", context)
 
 @csrf_exempt
 def modify(request):
@@ -45,7 +45,8 @@ def modify(request):
     print(arg)
     print(file)
     
-    ext = str(file["image"]).split(".")[-1]
+    if request.FILES.get("image"):
+        ext = str(file["image"]).split(".")[-1]
     print(arg)
 
     random_variable= random.randint(1,10000)
@@ -73,7 +74,7 @@ def modify(request):
     except IntegrityError:
         user.middlename = ""
 
-    if len(request.FILES) >= 0:
+    if request.FILES.get("image"):
         user.avatar = "/static/avatar/{}.{}".format(user.id, ext)
         handle_uploaded_file(user.id, file["image"], ext)
     
