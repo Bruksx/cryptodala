@@ -1,7 +1,7 @@
 const select = document.querySelector('.select-js')
 
 
-fetch('/static/index/js/countries.json')
+/*fetch('/static/index/js/countries.json')
   .then((response) => response.json())
   .then((data) => {
       let countries = data.countries
@@ -12,7 +12,7 @@ fetch('/static/index/js/countries.json')
          `
       })
       select.innerHTML = output
-  });
+  });*/
 
   //Email and mobile functionality
   const emailOption = document.querySelector('.email-option');

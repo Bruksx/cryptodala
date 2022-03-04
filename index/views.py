@@ -7,9 +7,24 @@ import random
 # Create your views here.
 def index(request):
      random_variable= random.randint(1,10000)
+     
+     if request.session.get("logged_in"):
+          logged_in = request.session.get("logged_in")
+          try:
+            user= customer.objects.filter(phone=logged_in)[0]
+          except IndexError:
+            user= customer.objects.filter(email=logged_in)[0]
+          context= {
+          "random_variable": random_variable,
+          "avatar": user.avatar,
+          }
+          return render(request, "index/index2.html", context)
+
+     
      context= {
           "random_variable": random_variable,
      }
+
      return render(request, "index/index.html", context)
 
 @csrf_exempt

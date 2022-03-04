@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/index/style.css">
+    <link rel="stylesheet" href="/static/index/style.css?{{random_variable}}">
     <title>Profile</title>
 </head>
 <body>
@@ -19,12 +19,12 @@
            <div class="bar-3"></div>
        </div>
         <div class="menu-container">
-            <a href="/" class="index">HOME</a>
+            <a href="index.html" class="index">HOME</a>
             <a href="#" class="buy-button-click">BUY</a>
             <a href="#" class="sell-button-click">SELL</a>
             <a href="#">P2P</a>
-            <a href="/">MARKETS</a>
-            <a href="/">WHAT WE DO</a>
+            <a href="#">MARKETS</a>
+            <a href="index.html">WHAT WE DO</a>
         </div>
         <div class="register">
            <a href="#" style="display: none;" class="sign-in-button">SIGN IN |</a>
@@ -37,7 +37,7 @@
    <!--User menu-->
    <div class="user-menu-bar">
     <div class="user-first-section">
-        <img src="{{avatar}}?{{random_variable}}" alt="avatar">
+        <img src="/static/index/img/img_avatar.png" alt="avatar">
         <div class="menu-number-username">
             <h4>+63 9....</h4>
             <p>aej3434Qr</p>
@@ -61,7 +61,18 @@
             <p style="color: gold;">Profile</p>
             <p class="verify-profile">Verify</p>
             <p>Pay</p>
+            <p class="verification-button">Verification</p>
+            <div class="verification-drop-down">
+                <ul>
+                    <li>We accept only:</li>
+                    <li>Driver's License</li>
+                    <li>Passport</li>
+                    <li>Alien Certificate of Registration Card (ACR Card)</li>
+                </ul>
+                </div>
             <p>Payment Methods</p>
+            <p class="settings-button">Settings</p>
+        <div class="notification-setting">
             <div class="notification-container">
                 <p>Notifications</p>
                 <label class="switch">
@@ -72,16 +83,18 @@
             <div class="notification-container">
             <p>Security</p>
             <label class="switch">
-                <input type="checkbox">
+                <input type="checkbox"class="notification-checked">
                 <span class="slider round"></span>
               </label>
             </div>
-            <p>Settings</p>
+        </div>
             <p class="help-support">Help and Support</p>
+            <p>Terms of use</p>
+            <p> <a href="/account/logout">Logout </a></p>
         </div>
             <div class="profile-menu">
             <div class="inner-profile-menu">
-                <img src="{{avatar}}?{{random_variable}}" alt="avatar" class="user-avatar">
+                <img src="/static/index/img/img_avatar.png" alt="avatar" class="user-avatar">
                 <div class="profile-details">
                     <h3>+{{country_code}} <span class="number-code">{{phone}}</span></h3>
                     <p>aej3434Qr</p>
@@ -93,7 +106,7 @@
                     <div class="user-name-email-password">
                         <p>{{firstname}}</p>
                         <p class="user-name-email">{{email}}</p>
-                        <p class="user-name-password">{{password}}</p>
+                        <p class="user-name-password"><span class="non-hashed">{{password}}</span><span class="hashed" style="display: none;">***********</span></p>
                 </div>
                 <button class="change-details">Change details</button>
             </div>
@@ -217,15 +230,15 @@
  <div class="menu-bar">
     <a  class="button-click">BUY</a> 
     <a class="button-sell-click">SELL</a> 
-    <a href="/">P2P</a>
-    <a href="/">MARKETS</a> 
-    <a href="/">WHAT WE DO</a>
-    <a href="/" class="sign-in-btn">SIGN IN</a>
-    <a href="/" class="sign-up-btn">REGISTER</a>
-    <a href="/">SUPPORTED GAMES</a>
+    <a href="index.html">P2P</a>
+    <a href="index.html">MARKETS</a> 
+    <a href="index.html">WHAT WE DO</a>
+    <a href="index.html" class="sign-in-btn">SIGN IN</a>
+    <a href="index.html" class="sign-up-btn">REGISTER</a>
+    <a href="index.html">SUPPORTED GAMES</a>
 </div>
 
  
-<script src="/static/index/js/profile.js?{{random_variable}}"></script>
+<script src="/static/index/js/profile.js"></script>
 </body>
 </html>

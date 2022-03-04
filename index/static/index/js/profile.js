@@ -109,14 +109,48 @@ sellBtton.addEventListener('click', ()=>{
        verifyButton.style.display = 'none'
     })
   })
-
-
-
-
-
-
-
-
-
-
   /*profile form ends */
+
+  /*Checked state*/
+  const checkedNotif = document.querySelector('.notification-checked');
+  checkedNotif.addEventListener('click', ()=>{
+    if(checkedNotif.checked === true){
+        let passwordHashed = document.querySelector('.hashed');
+        let passwordNon = document.querySelector('.non-hashed');
+        passwordHashed.style.display = 'block'
+        passwordNon.style.display = 'none'
+    } else if(checkedNotif.checked === false){
+        let passwordHashed = document.querySelector('.hashed');
+        let passwordNon = document.querySelector('.non-hashed');
+        passwordHashed.style.display = 'none'
+        passwordNon.style.display = 'block'
+    }  
+  })
+
+  //verification button
+  const verifyButton = document.querySelector('.verification-button');
+  let verifyCount = true
+  verifyButton.addEventListener('click', ()=>{
+      let verificationModal = document.querySelector('.verification-drop-down');
+      if(verifyCount === true){
+        verificationModal.style.display = 'block';
+        verifyCount = false;
+      } else if(verifyCount === false){
+        verificationModal.style.display = 'none';
+        verifyCount = true;
+      }
+  })
+
+ //
+ const settingButton = document.querySelector('.settings-button');
+ let settingCount = true
+ settingButton.addEventListener('click', ()=>{
+     let settingModal = document.querySelector('.notification-setting');
+     if(settingCount === true){
+       settingModal.style.display = 'block';
+       settingCount = false;
+     } else if(settingCount === false){
+       settingModal.style.display = 'none';
+       settingCount = true;
+     }
+ })

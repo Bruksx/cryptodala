@@ -3,6 +3,24 @@
     padding: 0;
 }
 
+/*verification modal*/
+.verification-drop-down{
+  margin: 10px;
+  display: none;
+}
+
+.verification-drop-down ul li{
+    list-style: none;
+    padding: 5px 0px 5px 0px ;
+}
+
+/* end */
+
+.notification-setting{
+    display: none;
+    margin-left: 10px;
+}
+
 .sign-in-cont{
     display: none;
 }
@@ -185,8 +203,9 @@
 
 .username-email-password{
     padding-top: 5px;
-    padding-bottom: 2px;
+    padding-bottom: 5px;
     display: flex;
+    justify-content: space-between;
 }
 
 .username-email-password p{
@@ -197,30 +216,23 @@
 }
 
 .username-email-password .user-email{
-    padding-right: 90px;
     padding-left: 5px;
 }
 
 .user-name-email-password{
     display: flex;
+    justify-content: space-around;
     padding-bottom: 8px;
+    width: 100%;
 }
 
 .user-name-email-password p{
    font-size: 13px;
 }
 
-.user-name-email-password .user-name-email{
-    padding-left: 50px;
-}
-
-.user-name-email-password .user-name-password{
-    padding-left: 50px;
-}
-
 .change-details{
     background-color: gold;
-    width: 70%;
+    width: 200px;
     color: #ffffff;
     font-weight: bold;
     cursor: pointer;
@@ -285,7 +297,7 @@
 body{
     font-family: sans-serif;
     box-sizing: border-box;
-    background-color: rgb(248, 243, 243); 
+    background: url('/static/index/img/BACKGROUND.png') no-repeat center center/cover; 
     position: relative;
     overflow-x: hidden ;
 }

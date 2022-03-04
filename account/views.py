@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from index.models import customer, handle_uploaded_file
 from django.views.decorators.csrf import csrf_exempt
@@ -9,6 +9,9 @@ import random
 def index(request):
     random_variable= random.randint(1,10000)
     logged_in=request.session.get("logged_in")
+
+    
+
     if logged_in: 
         try:
             user= customer.objects.filter(phone=logged_in)[0]
@@ -32,11 +35,11 @@ def index(request):
     }
 
     if request.GET.get("profile"):
-         return render(request, "index/index.html", context)
+         return render(request, "index/profile.html", context)
 
 
 
-    return render(request, "index/profile.html", context)
+    return render(request, "index/index2.html", context)
 
 @csrf_exempt
 def modify(request):
@@ -97,3 +100,7 @@ def modify(request):
 
 
     return render(request, "index/profile.html", context)
+
+def logout(request):
+    del request.session["logged_in"]
+    return redirect("/")
