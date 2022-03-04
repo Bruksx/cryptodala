@@ -11,7 +11,7 @@
     <header>
         <div class="header-flex">
            <img src="/static/index/img/logo 2.jpg" alt="logo" width="50">
-           <h1 class="home"><a href="" style="color: gold;text-decoration: none;">CRYPTODALA</a></h1>
+           <h1 class="home"><a href="/" style="color: gold;text-decoration: none;">CRYPTODALA</a></h1>
         </div>
         <div class="hamburger-menu">
            <div class="bar-1"></div>
@@ -37,7 +37,7 @@
    <!--User menu-->
    <div class="user-menu-bar">
     <div class="user-first-section">
-        <img src="/static/index/img/img_avatar.png" alt="avatar">
+        <img src="{{avatar}}?{{random_variable}}" alt="avatar">
         <div class="menu-number-username">
             <h4>+63 9....</h4>
             <p>aej3434Qr</p>
@@ -81,7 +81,7 @@
         </div>
             <div class="profile-menu">
             <div class="inner-profile-menu">
-                <img src="/static/index/img/img_avatar.png" alt="avatar" class="user-avatar">
+                <img src="{{avatar}}?{{random_variable}}" alt="avatar" class="user-avatar">
                 <div class="profile-details">
                     <h3>+{{country_code}} <span class="number-code">{{phone}}</span></h3>
                     <p>aej3434Qr</p>
@@ -91,7 +91,7 @@
                         <p class="user-password">Password</p>
                     </div>
                     <div class="user-name-email-password">
-                        <p>edgers</p>
+                        <p>{{firstname}}</p>
                         <p class="user-name-email">{{email}}</p>
                         <p class="user-name-password">{{password}}</p>
                 </div>

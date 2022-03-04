@@ -18,9 +18,15 @@ def register(request):
      print(cd)
      
      if cd.get("contact_type")== "mobile":
-          print["mobile"]
+          
+          if cd["mobile"][0] == "0":
+               mobile = cd["mobile"]
+               mobile = mobile[1:].strip()
+               mobile = "".join(mobile.split())
+          else:
+               mobile = cd["mobile"]
 
-          full_phone=  cd["country_code"] + cd["mobile"]
+          full_phone=  cd["country_code"] + str(mobile)
           full_phone =  "".join(full_phone.split())
           print(full_phone)
 
@@ -44,10 +50,12 @@ def register(request):
                     "message":"Profile created successfully"
                }
                new_profile = customer(
-                    phone=cd["mobile"],
+                    phone=mobile,
                     phone_code= cd["country_code"],
-                    password = cd["password"]
+                    password = cd["password"],
+                    full_phone_num = full_phone,
                )
+               
                new_profile.save()
           
           return JsonResponse(data)
@@ -76,25 +84,31 @@ def register(request):
 @csrf_exempt
 def login(request):
      cd=request.POST
-     print(cd)
+     print(cd["email_or_phone"])
 
      #check if user exists
      try:
+          #check if user exists with phone number
           exist= customer.objects.filter(phone=cd["email_or_phone"])[0]
           user_type= exist.phone
-          print(exist)
-          print(exist.password)
      
      except IndexError:
           try:
-               exist= customer.objects.filter(email=cd["email_or_phone"])[0]
-               user_type=exist.email
+               exist= customer.objects.filter(phone= cd["email_or_phone"][1:])[0]
+               user_type = exist.phone
           except IndexError:
-               data= {
-               "status":"error",
-               "message":"This email or phone number is not registered",
-          }
-               return JsonResponse(data)
+               try:
+                    #check if user exists with email
+                    exist= customer.objects.filter(email=cd["email_or_phone"])[0]
+                    user_type=exist.email
+               except IndexError:
+                    data= {
+                    "status":"error",
+                    "message":"This email or phone number is not registered",
+                    }
+                    print(data)
+                    return JsonResponse(data)
+
 
 
      #check password

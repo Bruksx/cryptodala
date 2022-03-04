@@ -8,3 +8,11 @@ python manage.py migrate
 from index.models import customer
 
 python manage.py createsuperuser
+
+
+PRODUCTION WORKFLOWS
+1. pull from git
+2. git ignore database
+3. run migrations if any
+2. change javascript redirect from local ip to domain
+3. change root directory for writing files on models.py
