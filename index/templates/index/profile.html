@@ -4,40 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/static/index/img/favicon.ico.png?{{random_variable}}" type="image/x-icon">
     <link rel="stylesheet" href="/static/index/style.css?{{random_variable}}">
     <title>Profile</title>
 </head>
 <body>
-    <header>
-        <div class="header-flex">
-           <img src="/static/index/img/logo 2.jpg" alt="logo" width="50">
-           <h1 class="home"><a href="/" style="color: gold;text-decoration: none;">CRYPTODALA</a></h1>
-        </div>
-        <div class="hamburger-menu">
-           <div class="bar-1"></div>
-           <div class="bar-2"></div>
-           <div class="bar-3"></div>
-       </div>
-        <div class="menu-container">
-            <a href="index.html" class="index">HOME</a>
-            <a href="#" class="buy-button-click">BUY</a>
-            <a href="#" class="sell-button-click">SELL</a>
-            <a href="#">P2P</a>
-            <a href="#">MARKETS</a>
-            <a href="index.html">WHAT WE DO</a>
-        </div>
-        <div class="register">
-           <a href="#" style="display: none;" class="sign-in-button">SIGN IN |</a>
-            <a href="#" style="display: none;" class="sign-up-button">REGISTER</a>
-            <span class="triangle-down"></span>
-            <a href="#">$USD |</a>
-            <a href="#">ENG</a>
-        </div>
-   </header>
+    <!---Header Section-->
+<header>
+    <div class="header-flex">
+       <img src="/static/index/img/IMG-20220303-WA0004 (1).png?{{random_variable}}" alt="logo" width="50">
+       <h1 class="home">CRYPTODALA</h1>
+    </div>
+    <div class="hamburger-menu">
+       <div class="bar-1"></div>
+       <div class="bar-2"></div>
+       <div class="bar-3"></div>
+   </div>
+    <div class="menu-container">
+        <a href="#" class="index">HOME</a>
+        <a href="#" class="buy-button-click">BUY</a>
+        <a href="#" class="sell-button-click">SELL</a>
+        <a href="#">P2P</a>
+        <a href="#margin">MARKETS</a>
+        <a href="#what-we-do">WHAT WE DO</a>
+    </div>
+    <div class="register">
+       <a href="#" style="display: none;" class="sign-in-button">SIGN IN |</a>
+        <a href="#" style="display: none;" class="sign-up-button">REGISTER</a>
+     <a href="/account?profile=1" style="display: block;"> <img src="{{avatar}}?{{random_variable}}" alt="avatar" class="user-img index2"></a>
+        <span class="triangle-down" style="display: block;"></span>
+     </div>
+    <div class="info">
+        <a href="#">SUPPORTED GAMES |</a>
+        <a href="#">$USD |</a>
+        <a href="#">ENG</a>
+    </div>
+</header>
    <!--User menu-->
-   <div class="user-menu-bar">
+   <div class="user-menu-bar index2">
     <div class="user-first-section">
-        <img src="/static/index/img/img_avatar.png" alt="avatar">
+        <img src="{{avatar}}?{{random_variable}}" alt="avatar">
         <div class="menu-number-username">
             <h4>+63 9....</h4>
             <p>aej3434Qr</p>
@@ -62,14 +68,6 @@
             <p class="verify-profile">Verify</p>
             <p>Pay</p>
             <p class="verification-button">Verification</p>
-            <div class="verification-drop-down">
-                <ul>
-                    <li>We accept only:</li>
-                    <li>Driver's License</li>
-                    <li>Passport</li>
-                    <li>Alien Certificate of Registration Card (ACR Card)</li>
-                </ul>
-                </div>
             <p>Payment Methods</p>
             <p class="settings-button">Settings</p>
         <div class="notification-setting">
@@ -94,20 +92,22 @@
         </div>
             <div class="profile-menu">
             <div class="inner-profile-menu">
-                <img src="/static/index/img/img_avatar.png" alt="avatar" class="user-avatar">
+                <img src="{{avatar}}?{{random_variable}}" alt="avatar" class="user-avatar">
                 <div class="profile-details">
                     <h3>+{{country_code}} <span class="number-code">{{phone}}</span></h3>
                     <p>aej3434Qr</p>
+                    <div class="wrap-flex">
                     <div class="username-email-password">
-                        <p class="user-username">Username</p>
-                        <p class="user-email">Email</p>
-                        <p class="user-password">Password</p>
+                        <p class="user-username">Username:</p>
+                        <p class="user-email">Email:</p>
+                        <p class="user-password">Password:</p>
                     </div>
                     <div class="user-name-email-password">
                         <p>{{firstname}}</p>
                         <p class="user-name-email">{{email}}</p>
                         <p class="user-name-password"><span class="non-hashed">{{password}}</span><span class="hashed" style="display: none;">***********</span></p>
                 </div>
+            </div>
                 <button class="change-details">Change details</button>
             </div>
     </div>
@@ -128,7 +128,7 @@
     <input type="submit" value="submit" class="submit">
 </form>
 <!--Verify form-->
-<form class="profile-form verify-button">
+<form class="profile-form verify-button" method="post" enctype="multipart/form-data" action="">
     <p class="close-verify">x</p>
    <label>Upload verification image</label>
    <input type="file">
@@ -144,6 +144,22 @@
     <textarea name="" id="" cols="38" rows="10"></textarea>
     <input type="submit" value="send" class="submit">
 </form>
+<!--Verification form-->
+
+<div class="profile-form verification-drop-down">
+    <form style="display:block" class="profile-form" method="post" enctype="multipart/form-data" action="verify">
+    <p class="close-help-verification">x</p>
+    <label>We accept only:</label>
+    <select>
+        <option>Driver's License</option>
+        <option>Alien Certificate of Registration Card (ACR Card)</option>
+        <option>Passport</option>
+    </select>
+    <input type="file">
+    <input type="submit" value="submit" class="submit">
+    </form>
+    </div>
+    
 <!--Buy Modal-->
 <div class="buy-modal">
     <div class="header-modal">
@@ -239,6 +255,6 @@
 </div>
 
  
-<script src="/static/index/js/profile.js"></script>
+<script src="/static/index/js/profile.js?{{random_variable}}"></script>
 </body>
 </html>

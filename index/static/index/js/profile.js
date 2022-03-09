@@ -139,6 +139,12 @@ sellBtton.addEventListener('click', ()=>{
         verificationModal.style.display = 'none';
         verifyCount = true;
       }
+
+      let close = document.querySelector('.close-help-verification');
+      close.addEventListener('click', ()=>{
+        let verificationModal = document.querySelector('.verification-drop-down');
+        verificationModal.style.display = 'none';
+      })
   })
 
  //

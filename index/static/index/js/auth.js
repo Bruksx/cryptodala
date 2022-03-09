@@ -47,7 +47,12 @@ function login(){
     request.onload = function(){
         data= JSON.parse(this.responseText)
         if (data["status"]== "success"){
-            window.location.replace("http://127.0.0.1:8000/account")
+            if (window.location.hostname === "127.0.0.1" ){
+                window.location.replace("http://127.0.0.1:8000/account")
+            }
+            else {
+                window.location.replace("http://cryptodala.pythonanywhere.com/account")
+            }
         }
     }
     request.open("POST", "/login")

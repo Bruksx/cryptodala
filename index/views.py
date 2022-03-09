@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from .models import customer
+from .models import Customer
 from django.views.decorators.csrf import csrf_exempt
 import random
 
@@ -11,9 +11,9 @@ def index(request):
      if request.session.get("logged_in"):
           logged_in = request.session.get("logged_in")
           try:
-            user= customer.objects.filter(phone=logged_in)[0]
+            user= Customer.objects.filter(phone=logged_in)[0]
           except IndexError:
-            user= customer.objects.filter(email=logged_in)[0]
+            user= Customer.objects.filter(email=logged_in)[0]
           context= {
           "random_variable": random_variable,
           "avatar": user.avatar,
@@ -46,7 +46,7 @@ def register(request):
           print(full_phone)
 
           #check if user already exists
-          already_exists= customer.objects.filter(phone=cd["mobile"])
+          already_exists= Customer.objects.filter(phone=cd["mobile"])
           if already_exists:
                data ={
                     "status": "error",
@@ -64,7 +64,7 @@ def register(request):
                     "status":"success",
                     "message":"Profile created successfully"
                }
-               new_profile = customer(
+               new_profile = Customer(
                     phone=mobile,
                     phone_code= cd["country_code"],
                     password = cd["password"],
@@ -77,7 +77,7 @@ def register(request):
 
      
      if cd.get("contact_type")== "email":
-          already_exists= customer.objects.filter(email=cd["email"])
+          already_exists= Customer.objects.filter(email=cd["email"])
           if already_exists:
                data ={
                     "status": "error",
@@ -89,7 +89,7 @@ def register(request):
                     "status":"success",
                     "message":"Profile created successfully"
                }
-               new_profile = customer(
+               new_profile = Customer(
                     email=cd["email"],
                     password = cd["password"])
                new_profile.save()
@@ -104,17 +104,17 @@ def login(request):
      #check if user exists
      try:
           #check if user exists with phone number
-          exist= customer.objects.filter(phone=cd["email_or_phone"])[0]
+          exist= Customer.objects.filter(phone=cd["email_or_phone"])[0]
           user_type= exist.phone
      
      except IndexError:
           try:
-               exist= customer.objects.filter(phone= cd["email_or_phone"][1:])[0]
+               exist= Customer.objects.filter(phone= cd["email_or_phone"][1:])[0]
                user_type = exist.phone
           except IndexError:
                try:
                     #check if user exists with email
-                    exist= customer.objects.filter(email=cd["email_or_phone"])[0]
+                    exist= Customer.objects.filter(email=cd["email_or_phone"])[0]
                     user_type=exist.email
                except IndexError:
                     data= {

@@ -1,6 +1,7 @@
+from urllib.request import HTTPRedirectHandler
 from django.shortcuts import render, redirect
-from django.http import JsonResponse
-from index.models import customer, handle_uploaded_file
+from django.http import JsonResponse, HttpResponse
+from index.models import Customer, Verification, handle_uploaded_file, handle_verification_doc
 from django.views.decorators.csrf import csrf_exempt
 from django.db.utils import IntegrityError
 import random
@@ -14,9 +15,9 @@ def index(request):
 
     if logged_in: 
         try:
-            user= customer.objects.filter(phone=logged_in)[0]
+            user= Customer.objects.filter(phone=logged_in)[0]
         except IndexError:
-            user= customer.objects.filter(email=logged_in)[0]
+            user= Customer.objects.filter(email=logged_in)[0]
     
     
 
@@ -45,20 +46,18 @@ def index(request):
 def modify(request):
     arg = request.POST
     file = request.FILES
-    print(arg)
-    print(file)
+
     
     if request.FILES.get("image"):
         ext = str(file["image"]).split(".")[-1]
-    print(arg)
 
     random_variable= random.randint(1,10000)
     logged_in=request.session.get("logged_in")
     if logged_in: 
         try:
-            user= customer.objects.filter(phone=logged_in)[0]
+            user= Customer.objects.filter(phone=logged_in)[0]
         except IndexError:
-            user= customer.objects.filter(email=logged_in)[0]
+            user= Customer.objects.filter(email=logged_in)[0]
     
     try:
         user.email = arg.get("email")
@@ -100,6 +99,30 @@ def modify(request):
 
 
     return render(request, "index/profile.html", context)
+
+@csrf_exempt
+def verify(request):
+    file = request.FILES
+    data = request.POST
+
+    logged_in=request.session.get("logged_in")
+    if logged_in: 
+        try:
+            user= Customer.objects.filter(phone=logged_in)[0]
+        except IndexError:
+            user= Customer.objects.filter(email=logged_in)[0]
+
+    if file.get("document"):
+        handle_verification_doc(user.id, file["document"])
+        new_ver = Verification(
+            customer = user,
+            doc_type = data.get("type"),
+            document = "/static/verify/{}".format(file["document"])
+        )
+        new_ver.save()
+
+
+    return redirect("/account")
 
 def logout(request):
     del request.session["logged_in"]
