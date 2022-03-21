@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from index.models import Verification, Customer
+from index.models import Verification, Customer, user_package
+import requests
 
 # Create your views here.
 def verifications(request):
@@ -17,12 +18,26 @@ def verifications(request):
 
 def verify(request,customer_id):
     user = Customer.objects.filter(id=customer_id)[0]
-    user.verified = True
+    context = user_package(user)
+    
     data = {
         "message": "{} has been verified".format(user)
     }
-    verification = Verification.objects.filter(customer=user)[0]
-    verification.delete()
-    user.save()
+    verification = Verification.objects.get(customer=user)
+    context["src"] = verification.document
+    context["doc_type"] = verification.doc_type
 
-    return JsonResponse(data)
+    if request.GET.get("verify"):
+        user.verified = True
+        data = {
+        "message": "{} has been verified".format(user)
+    }
+        verification.delete()
+        user.save()
+        return JsonResponse(data)
+
+    return render(request, "index/verify.html", context)
+
+def check_ip(request):
+    ip = requests.get("https://ipinfo.io/json").json().get("ip")
+    return HttpResponse(ip)

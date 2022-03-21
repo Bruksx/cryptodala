@@ -1,0 +1,1 @@
+web: gunicorn cryptogalaproject.wsgi --log-file -

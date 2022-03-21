@@ -150,12 +150,12 @@
     <form style="display:block" class="profile-form" method="post" enctype="multipart/form-data" action="verify">
     <p class="close-help-verification">x</p>
     <label>We accept only:</label>
-    <select>
-        <option>Driver's License</option>
-        <option>Alien Certificate of Registration Card (ACR Card)</option>
-        <option>Passport</option>
+    <select name="type">
+        <option value="DL">Driver's License</option>
+        <option value="ACR">Alien Certificate of Registration Card (ACR Card)</option>
+        <option value="PASS">Passport</option>
     </select>
-    <input type="file">
+    <input type="file" name="document">
     <input type="submit" value="submit" class="submit">
     </form>
     </div>

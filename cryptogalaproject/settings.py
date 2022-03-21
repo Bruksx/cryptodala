@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'cryptodala.pythonanywhere.com',
+    'cryptodala.herokuapp.com'
     ]
 
 
@@ -121,6 +122,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto//static/home/assets-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = '/home/cryptodala/mysite/cryptogalaproject/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

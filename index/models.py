@@ -1,5 +1,6 @@
 from django.db import models
-import os 
+import os
+import random
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 if ROOT_DIR.split("\\")[0] == "C:":
@@ -34,7 +35,26 @@ def handle_uploaded_file(name, f, extension):
             destination.write(chunk)
 
 def handle_verification_doc(name, f):
+	print(name)
 	ext = str(f).split(".")[-1]
+	print(ext)
 	with open(upload_site.format("verify", name, ext), 'wb+') as destination:
 		for chunk in f.chunks():
 			destination.write(chunk)
+	return ext
+
+def user_package(user):
+	random_variable= random.randint(1,10000)
+	context={
+        "random_variable": random_variable,
+        "email": user.email,
+        "password": user.password,
+        "phone": user.phone,
+        "country_code": user.phone_code,
+        "firstname": user.firstname,
+        "middlename": user.middlename,
+        "lastname": user.lastname,
+        "id": user.id,
+        "avatar": user.avatar,
+    }
+	return context

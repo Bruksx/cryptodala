@@ -113,11 +113,18 @@ def verify(request):
             user= Customer.objects.filter(email=logged_in)[0]
 
     if file.get("document"):
-        handle_verification_doc(user.id, file["document"])
+        print(user.id)
+
+        ext = handle_verification_doc(user.id, file["document"])
+
+        old_verification = Verification.objects.filter(customer= user)
+        for docs in old_verification:
+            docs.delete()
+
         new_ver = Verification(
             customer = user,
             doc_type = data.get("type"),
-            document = "/static/verify/{}".format(file["document"])
+            document = "/static/verify/{}.{}".format(user.id, ext)
         )
         new_ver.save()
 
