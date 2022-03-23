@@ -50,8 +50,11 @@ function login(){
             if (window.location.hostname === "127.0.0.1" ){
                 window.location.replace("http://127.0.0.1:8000/account")
             }
-            else {
+            if (window.location.hostname == "cryptodala.pythonanywhere.com" ) {
                 window.location.replace("http://cryptodala.pythonanywhere.com/account")
+            }
+            else {
+                window.location.replace("https://cryptodala.herokuapp.com/account")
             }
         }
     }
