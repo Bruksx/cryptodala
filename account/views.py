@@ -1,7 +1,7 @@
 from urllib.request import HTTPRedirectHandler
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse
-from index.models import Customer, Verification, handle_uploaded_file, handle_verification_doc
+from index.models import Customer, Verification, address, handle_uploaded_file, handle_verification_doc
 from django.views.decorators.csrf import csrf_exempt
 from django.db.utils import IntegrityError
 import random
@@ -130,6 +130,56 @@ def verify(request):
 
 
     return redirect("/account")
+
+@csrf_exempt
+def add_address(request):
+    data = request.POST
+    print(data)
+    logged_in=request.session.get("logged_in")
+    if logged_in: 
+        try:
+            user= Customer.objects.get(phone=logged_in)
+        except:
+            user= Customer.objects.get(email=logged_in)
+    else:
+        redirect("/")
+    
+    new_address = address(
+        customer = user,
+        type = data.get("type"),
+        address = data.get("address"),
+    )
+    try:
+        new_address.save()
+        print(new_address)
+        return redirect("/account?profile=1")
+    except IntegrityError:
+        return redirect("/account?profile=1")
+
+def get_address(request):
+    logged_in = request.session.get("logged_in")
+    if logged_in: 
+        try:
+            user= Customer.objects.get(phone=logged_in)
+        except:
+            user= Customer.objects.get(email=logged_in)
+    else:
+        data = {
+            "message": "you are not logged in"
+        }
+        return JsonResponse(data)
+    
+    address_list = address.objects.filter(customer = user).all()
+    data = {}
+    for adrs in address_list:
+        data[adrs.address] = adrs.type
+    print(data)
+    return JsonResponse(data)
+
+
+
+
+
 
 def logout(request):
     del request.session["logged_in"]

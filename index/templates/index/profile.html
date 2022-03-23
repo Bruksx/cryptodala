@@ -50,7 +50,8 @@
         </div>
     </div>
     <div class="user-list">
-        <p>Verify</p>
+        <p>Add Address</p>
+        <p>View Address</p>
         <p>Pay</p>
         <p>Payment Methods</p>
         <p>Notifications</p>
@@ -65,7 +66,8 @@
     <div class="profile-container">
         <div class="profile-list">
             <p style="color: gold;">Profile</p>
-            <p class="verify-profile">Verify</p>
+            <p class="verify-profile">Add Address </p>
+            <p id="open-address">View Address</p>
             <p>Pay</p>
             <p class="verification-button">Verification</p>
             <p>Payment Methods</p>
@@ -122,16 +124,21 @@
     <label>Last name:</label>
     <input type="text" value="{{lastname}}" name="lastname">
     <label>Email:</label>
-    <input type="email" value="{{email}}" name="email">
+    <input type="email" value="{{email}}" name="email" disabled>
     <label>Upload image</label>
     <input type="file" name="image">
     <input type="submit" value="submit" class="submit">
 </form>
 <!--Verify form-->
-<form class="profile-form verify-button" method="post" enctype="multipart/form-data" action="">
+<form class="profile-form verify-button" method="post" enctype="multipart/form-data" action="add_address">
     <p class="close-verify">x</p>
-   <label>Upload verification image</label>
-   <input type="file">
+   <input type="text" required placeholder="paste your wallet address" name="address">
+   <select name="type">
+       <option value="BTC">BTC</option>
+       <option value="ETH">ETH</option>
+       <option value="USDT">USDT</option>
+   </select>
+   <input type="submit">
 </form>
 <!--Help and support form-->
 <form class="profile-form help-button">
@@ -240,6 +247,26 @@
         </select> <br>
     </div>
         <button>PAY | TOTAL </button>
+</div>
+
+<!--Address Modal-->
+<div class="modal-bg">
+    <div class="modal">
+        <span id="close-table">X</span>
+        <table class="addreess-table">
+            <caption>Your Addresses</caption>
+            <thead>
+                <tr>
+                    <th>Type</th> <th>Address</th>
+                </tr>
+            </thead>
+            <tbody id="body">
+            
+            </tbody>
+            
+
+        </table>
+    </div>
 </div>
 
  <!--Menu bar-->

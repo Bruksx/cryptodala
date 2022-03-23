@@ -7,6 +7,10 @@ const buyModal = document.querySelector('.buy-button-click');
 const close = document.querySelector('.close');
 const buyMdal = document.querySelector('.button-click');
 const sellBtton = document.querySelector('.button-sell-click');
+const viewAddress = document.getElementById("open-address")
+const tableModal = document.getElementsByClassName("modal-bg")[0]
+const closeTableModal = document.getElementById("close-table")
+const addressTable = document.getElementById("body")
 
 //User Menu List
 const userMenu = document.querySelector('.triangle-down');
@@ -22,6 +26,18 @@ userMenu.addEventListener('click', ()=>{
    }
 })
 
+
+viewAddress.addEventListener('click', ()=>{
+  tableModal.style.visibility = 'visible'
+})
+
+viewAddress.addEventListener('click', get_address)
+
+
+
+closeTableModal.addEventListener('click', ()=>{
+  tableModal.style.visibility = 'hidden'
+})
 
 buyModal.addEventListener('click', ()=>{
     modal.style.display = 'block'
@@ -160,3 +176,28 @@ sellBtton.addEventListener('click', ()=>{
        settingCount = true;
      }
  })
+
+ function get_address(){
+   request = new XMLHttpRequest()
+   request.onload = function (){
+    data = JSON.parse(this.responseText)
+    addressTable.innerHTML = ""
+    for (let i in data){
+      let adrs = i
+      let type = data[i]
+      let row = document.createElement("tr")
+      let col = document.createElement("td")
+      let col2 = document.createElement("td")
+      let text = document.createTextNode(adrs.toString())
+      let text2 = document.createTextNode(type.toString())
+      col2.appendChild(text2)
+      col.appendChild(text)
+      row.appendChild(col2)
+      row.appendChild(col)
+      addressTable.appendChild(row)
+    }
+    
+   }
+   request.open("GET","get_address")
+   request.send()
+ }

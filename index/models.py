@@ -29,6 +29,14 @@ class Verification(models.Model):
 	doc_type = models.CharField(max_length=6)
 	document = models.CharField(max_length=60)
 
+class address(models.Model):
+	customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+	type = models.CharField(max_length=6)
+	address = models.CharField(max_length=100, unique=True)
+
+
+
+
 def handle_uploaded_file(name, f, extension):
     with open(upload_site.format("avatar", name, extension), 'wb+') as destination:
         for chunk in f.chunks():

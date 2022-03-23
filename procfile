@@ -1,1 +1,1 @@
-web: gunicorn cryptogalaproject.wsgi --log-file -
+web: bin/qgtunnel gunicorn cryptogalaproject.wsgi --log-file -
