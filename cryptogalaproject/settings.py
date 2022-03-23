@@ -80,11 +80,22 @@ WSGI_APPLICATION = 'cryptogalaproject.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}"""
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'USER': 'tlouvfdalkbrbt',
+        'NAME':  'daf9oqco90nlpe',
+        'PASSWORD': '46af355e8735a76820046cc89270fe7733a0235b7f028b1b81d26e7ede4cecd3',
+        'HOST': 'ec2-52-18-116-67.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
     }
 }
 

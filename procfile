@@ -1,1 +1,2 @@
+release: python manage.py migrate
 web: bin/qgtunnel gunicorn cryptogalaproject.wsgi --log-file -
