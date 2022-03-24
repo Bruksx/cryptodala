@@ -51,7 +51,7 @@ function login(){
                 window.location.replace("http://127.0.0.1:8000/account")
             }
             else {
-                window.location.replace("http://cryptodala.pythonanywhere.com/account")
+                window.location.replace("http://cryptodala.herokuapp.com/account")
             }
         }
     }
