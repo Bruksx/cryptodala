@@ -31,7 +31,7 @@ viewAddress.addEventListener('click', ()=>{
   tableModal.style.visibility = 'visible'
 })
 
-viewAddress.addEventListener('click', get_address)
+//viewAddress.addEventListener('click', get_address)
 
 
 
@@ -180,24 +180,10 @@ sellBtton.addEventListener('click', ()=>{
  function get_address(){
    request = new XMLHttpRequest()
    request.onload = function (){
-    data = JSON.parse(this.responseText)
-    addressTable.innerHTML = ""
-    for (let i in data){
-      let adrs = i
-      let type = data[i]
-      let row = document.createElement("tr")
-      let col = document.createElement("td")
-      let col2 = document.createElement("td")
-      let text = document.createTextNode(adrs.toString())
-      let text2 = document.createTextNode(type.toString())
-      col2.appendChild(text2)
-      col.appendChild(text)
-      row.appendChild(col2)
-      row.appendChild(col)
-      addressTable.appendChild(row)
+    alert(this.resposeText)
     }
     
-   }
-   request.open("GET","get_address")
+   
+   request.open("GET","/sola/create")
    request.send()
  }

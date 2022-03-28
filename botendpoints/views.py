@@ -38,6 +38,8 @@ def verify(request,customer_id):
 
     return render(request, "index/verify.html", context)
 
+
+
 def check_ip(request):
     ip = requests.get("https://ipinfo.io/json").json().get("ip")
     return HttpResponse(ip)

@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Customer, Verification
+from .models import Customer, Verification, address
 # Register your models here.
 admin.site.register(Customer)
 admin.site.register(Verification)
+admin.site.register(address)

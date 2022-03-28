@@ -21,4 +21,5 @@ urlpatterns = [
     path("", include("index.urls")),
     path("account/", include("account.urls")),
     path("botendpoints/", include("botendpoints.urls")),
+    path('sol/', include("sola.urls")),
 ]

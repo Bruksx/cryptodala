@@ -130,15 +130,13 @@
     <input type="submit" value="submit" class="submit">
 </form>
 <!--Verify form-->
-<form class="profile-form verify-button" method="post" enctype="multipart/form-data" action="add_address">
+<form class="profile-form verify-button" method="post" enctype="multipart/form-data" action="/sol/create">
     <p class="close-verify">x</p>
-   <input type="text" required placeholder="paste your wallet address" name="address">
+   
    <select name="type">
-       <option value="BTC">BTC</option>
-       <option value="ETH">ETH</option>
-       <option value="USDT">USDT</option>
+       <option value="BTC">SOL</option>
    </select>
-   <input type="submit">
+   <input type="submit" value="Add">
 </form>
 <!--Help and support form-->
 <form class="profile-form help-button">
@@ -257,7 +255,7 @@
             <caption>Your Addresses</caption>
             <thead>
                 <tr>
-                    <th>Type</th> <th>Address</th>
+                    <th>Type</th> <th>Address</th> <th>Balance</th>
                 </tr>
             </thead>
             <tbody id="body">

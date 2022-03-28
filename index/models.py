@@ -33,6 +33,8 @@ class address(models.Model):
 	customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
 	type = models.CharField(max_length=6)
 	address = models.CharField(max_length=100, unique=True)
+	public_key = models.CharField(max_length=100, unique=True)
+	private_key = models.CharField(max_length=100, unique=True)
 
 
 
